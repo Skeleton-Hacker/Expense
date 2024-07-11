@@ -37,5 +37,4 @@ def add_entry():
             write_entry(entry)
             break
 
-add_entry()
 
