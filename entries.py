@@ -29,7 +29,7 @@ def add_entry(month, year):
 
         tag = input("Enter type of expense: ").strip()
         entry = f"{type}{amount},{date} {month} {year},{tag}\n"
-        file = os.path.join("expenses/" + "expense_" + month + year + ".txt")
+        file = os.path.join("expenses/expenses_" + month + year + ".txt")
         write_entry(entry, file)
         choice = input("Add another entry(y/n): ")
         if choice == "y":
