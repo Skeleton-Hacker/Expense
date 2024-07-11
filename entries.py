@@ -1,12 +1,10 @@
 from datetime import datetime
 
-expense_file = "expense.txt"
-
-def write_entry(entry):
-    with open(expense_file, "a") as file:
+def write_entry(entry, file):
+    with open(file, "a") as file:
         file.write(entry)
 
-def add_entry():
+def add_entry(month, year):
     while True:
         while True:    
             type = input("Select Credit(+) or Debit(-): ").strip()
@@ -23,18 +21,20 @@ def add_entry():
                 print("Invalid amount")
 
         while True:    
-            date = input("Enter date(DD-MM-YY): ").strip()
-            try:
-                datetime.strptime(date, "%d-%m-%y")
+            date = int(input("Enter date(DD): ").strip())
+            if date not in range(31):
+                print("Incorrect date")
+            else:
                 break
-            except ValueError:
-                print("Incorrect date format, use (DD-MM-YY)")
 
         tag = input("Enter type of expense: ").strip()
-        entry = f"{type}{amount},{date},{tag}\n"
-        confirmation = input(f"Confirm entry(y/n): {entry}")
-        if confirmation == 'y':
-            write_entry(entry)
+        entry = f"{type}{amount},{date} {month} {year},{tag}\n"
+        file = "expenses/" + "expense_" + month + year + ".txt"
+        write_entry(entry, file)
+        choice = input("Add another entry(y/n): ")
+        if choice == "y":
+            continue
+        else:
             break
 
 

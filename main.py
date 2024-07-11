@@ -10,7 +10,9 @@ def options():
 def main():
     choice = options()
     if choice == 1:
-        add_entry()
+        month = input("Month: ")
+        year = input("Year: ")
+        add_entry(month, year)
 
 if __name__ == "__main__":
     main()
