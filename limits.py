@@ -18,14 +18,12 @@ def limits():
     print("Changes applied successfully")
 
 def check_exceed(month, year):
-    choice = -1
-    if input("Select (y) to check for week: ") == 'y':
-        choice = 1
-    else:
-        choice = 0
-
-    file = os.path.join("expenses/expenses_" + month + year + ".txt")
-    data = reader(file)
+    try:
+        file = os.path.join("expenses/expenses_" + month + year + ".txt")
+        data = reader(file)
+    except:
+        print("The given data does not exist.")
+        return 
     expense = 0
     for line in data:
         try:
@@ -36,12 +34,6 @@ def check_exceed(month, year):
 
     file = os.path.join("expenses/expenses_limits.txt")
     data = reader(file)
-    
-    if choice:
-        limit = int(data[0].split(" ")[2])
-        print(f"Weekly Budget left: {limit + expense}")
-        if expense >= limit:
-            print("Weekly expense exceeded.")
 
     limit = int(data[1].split(" ")[2])
     print(f"Monthly Budget left: {limit + expense}")

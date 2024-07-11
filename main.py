@@ -25,10 +25,19 @@ def main():
                 add_entry(month, year)
             elif choice == 5:     
                 limits()
+            choice = input("Continue(y/n): ")
+            if choice.lower() == 'n':
+                clear_screen()
+                print("All changes have been saved successfully")
+                check_exceed(month, year)
+                break
         except KeyboardInterrupt:
             clear_screen()
             print("All changes have been saved successfully")
-            check_exceed(month, year)
+            try:
+                check_exceed(month, year)
+            except:
+                print("Month and Year not provided. Aborting.")
             break
         except:
             print("Invalid command, try again")

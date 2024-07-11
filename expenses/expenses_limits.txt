@@ -1,2 +1,1 @@
-Weekly limit: 1500
-Monthly limit: 5000
+Monthly limit: 10000

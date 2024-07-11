@@ -21,7 +21,7 @@ def add_entry(month, year):
                 print("Invalid amount")
 
         while True:    
-            date = int(input("Enter date(DD): ").strip())
+            date = int(input("Enter date: ").strip())
             if date not in range(31):
                 print("Incorrect date")
             else:
