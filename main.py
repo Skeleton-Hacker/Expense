@@ -17,7 +17,10 @@ def add_entry():
             type = input("Select Credit(+) or Debit(-): ").strip()
             if type == "+" or "-":
                 break
-        amount = input("Enter amount: ")
+        try:
+            amount = int(input("Enter amount: "))
+        except:
+            pass
         date = input("Enter date(DD-MM-YY): ").strip()
         tag = input("Enter type of expense: ").strip()
         entry = type + amount + "," + date + "," + tag + "\n"
