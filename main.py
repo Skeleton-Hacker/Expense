@@ -14,10 +14,9 @@ def options():
 def main():
     choice = options()
     clear_screen()
+    month = input("Month: ")
+    year = input("Year: ")
     if choice == 1:
-        month = input("Month: ")
-        year = input("Year: ")
-        print()
         add_entry(month, year)
     elif choice == 2:
         print("Select option:")
@@ -26,6 +25,8 @@ def main():
         print("\t c. ")
     elif choice == 5:     
         limits()
+    
+    check_exceed(month, year)
 
 if __name__ == "__main__":
     main()
