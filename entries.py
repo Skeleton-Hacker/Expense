@@ -7,22 +7,22 @@ def write_entry(entry):
         file.write(entry)
 
 def add_entry():
-    while(1):
-        while(1):    
+    while True:
+        while True:    
             type = input("Select Credit(+) or Debit(-): ").strip()
-            if type == "+" or "-":
+            if type in ("+", "-"):
                 break
             else:
                 print("Invalid response,", end = " ")
 
-        while(1):
+        while True:
             try:
                 amount = int(input("Enter amount: "))
                 break
             except ValueError:
                 print("Invalid amount")
 
-        while(1):    
+        while True:    
             date = input("Enter date(DD-MM-YY): ").strip()
             try:
                 datetime.strptime(date, "%d-%m-%y")
@@ -31,9 +31,9 @@ def add_entry():
                 print("Incorrect date format, use (DD-MM-YY)")
 
         tag = input("Enter type of expense: ").strip()
-        entry = type + amount + "," + date + "," + tag + "\n"
-        print("Confirm entry(y) or skip(n):", entry, end = "")
-        if input().strip() == 'y':
+        entry = f"{type}{amount},{date},{tag}\n"
+        confirmation = input(f"Confirm entry(y/n): {entry}")
+        if confirmation == 'y':
             write_entry(entry)
             break
 

@@ -11,3 +11,6 @@ def main():
     choice = options()
     if choice == 1:
         add_entry()
+
+if __name__ == "__main__":
+    main()
