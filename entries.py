@@ -32,7 +32,7 @@ def add_entry(month, year):
         file = os.path.join("expenses/expenses_" + month + year + ".txt")
         write_entry(entry, file)
         choice = input("Add another entry(y/n): ")
-        if choice == "y":
+        if choice.lower() == "y":
             continue
         else:
             break
