@@ -2,13 +2,15 @@ from helper import *
 import os
 
 def limits():
-    file = os.path.join("expenses/expenses_limits.txt")
+    file = os.path.join("expenses/Variables.txt")
     print("Enter limits (Press enter to skip): ")
     try:
         monthly_limit = int(input("Enter monthly limit: ").strip())
     except ValueError:
         monthly_limit = reader(file)[1].split(" ")[2]
+    current_balance = reader(file)[0].split(" ")[2]
     with open(file, "w") as file:
+        file.write(f"Current balance: {current_balance}\n")
         file.write(f"Monthly limit: {monthly_limit}\n")
     print("Changes applied successfully")
 
@@ -27,10 +29,11 @@ def check_exceed(month, year):
             pass
     print(f"Expenditure in month till now: {expense}")
 
-    file = os.path.join("expenses/expenses_limits.txt")
+    file = os.path.join("expenses/Variables.txt")
     data = reader(file)
-
+    balance = int(data[0].split(" ")[2])
     limit = int(data[1].split(" ")[2])
+    print(f"Current Balance: {balance}")
     print(f"Monthly Budget left: {limit + expense}")
     if expense >= limit:
         print("Monthly expense limit exceeded.")
