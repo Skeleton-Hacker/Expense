@@ -16,6 +16,7 @@ def main():
     while True:
         try:
             clear_screen()
+            print("Select the month and year to the specified")
             month = input("Month: ")
             year = input("Year: ")
             clear_screen()
@@ -35,6 +36,9 @@ def main():
             clear_screen()
             print("All changes have been saved successfully")
             try:
+                choice = input("Continue(y/n): ")
+                if choice.lower() == 'y':
+                    continue
                 check_exceed(month, year)
             except:
                 print("Month and Year not provided. Aborting.")
