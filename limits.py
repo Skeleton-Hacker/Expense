@@ -5,10 +5,13 @@ def limits():
     file = os.path.join("expenses/Variables.txt")
     print("Enter limits (Press enter to skip): ")
     try:
+        current_balance = int(input("Enter current balance: ").strip())
+    except:
+        current_balance = reader(file)[0].split(" ")[2]
+    try:
         monthly_limit = int(input("Enter monthly limit: ").strip())
     except ValueError:
         monthly_limit = reader(file)[1].split(" ")[2]
-    current_balance = reader(file)[0].split(" ")[2]
     with open(file, "w") as file:
         file.write(f"Current balance: {current_balance}\n")
         file.write(f"Monthly limit: {monthly_limit}\n")
