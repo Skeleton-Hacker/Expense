@@ -1,5 +1,9 @@
 import os
 
+months = ['January', 'February', 'March', 'April', 
+          'May', 'June', 'July', 'August', 
+          'September', 'October', 'November', 'December']
+
 def clear_screen():
     os.system('clear')
 

@@ -44,7 +44,7 @@ def main():
                 print("Month and Year not provided. Aborting.")
             break
         except:
-            print("Invalid command, try again")
+            print("Error encountered, try again")
 
 if __name__ == "__main__":
     main()

@@ -34,3 +34,4 @@ The expenses of the specified month will be stored in the folder `expenses` with
 	- Enter the year in 20xx format (for example: 2024)
 This will be used for the entirety of the next operation. To change the month/year, enter `y` when continue is asked. 
 2. If any error is made while inputing the data, press `Ctrl+C` 
+3. In all cases, '+' denotes money saved, '-' denotes money spent
