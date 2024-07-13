@@ -52,9 +52,11 @@ def amount_categorize(data, data_prev):
     
     file = os.path.join("expenses/Variables.txt")
     monthly_limit = reader(file)[1].split(" ")[2]
-    print(f"Amount left in month's budget: {monthly_limit + amount_added - amount_deducted}")
+    monthly_save = monthly_limit + amount_added - amount_deducted
+    print(f"Amount left in month's budget: {monthly_save}")
+    return monthly_save
 
-def spending_overview(data, month, year):
+def spending_overview(data, month, year, monthly_save):
     expenditure = []
     for line in data:
         amt_info = line.split(",")[0]
@@ -68,9 +70,10 @@ def spending_overview(data, month, year):
     expenditure.sort(key = lambda x: x[1])
     file = os.path.join("overview/" + month + year + ".txt")
     with open(file, 'w') as file:
+        file.write(monthly_save)
         for line in expenditure:
             print(f"{line[0]}: line[1]")
-            file.write(f"line[0]: line[1]")
+            file.write(f"line[0]: line[1]\n")
     
 
 
